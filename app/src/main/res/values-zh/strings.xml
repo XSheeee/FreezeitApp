@@ -15,7 +15,7 @@
     <string name="online_changelog_link">https://ghproxy.com/https://raw.githubusercontent.com/jark006/freezeitRelease/main/changelogFull.txt</string>
 
 
-    <string name="coolapk_text">酷安 @JARK006</string>
+    <string name="coolapk_text">酷安 @JARK006/酷安@XShee</string>
     <string name="qq_group_text">QQ群组 781222669</string>
     <string name="qq_channel_text">QQ频道 冻它模块</string>
     <string name="tg_group_text">Telegram 讨论组</string>
@@ -23,7 +23,7 @@
 
     <string name="update_app_label">更新应用名称</string>
     <string name="about">关于</string>
-    <string name="developer">开发者 JARK006</string>
+    <string name="developer">开发者 JARK006/改版作者XShe</string>
     <string name="xposed_warn">未激活,无法工作</string>
     <string name="freezeit_offline">冻它未启用或工作异常</string>
     <string name="freezeit_error_tips">

@@ -154,27 +154,27 @@ public class Home extends Fragment implements View.OnClickListener {
             handler.sendEmptyMessage(HAS_MODULE_INFO);
         }).start();
     }
-
-    void getOnlineInfoTask() {
-        if (StaticData.hasOnlineInfo)
-            handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
-        else new Thread(() -> {
-            var response = Utils.getNetworkData(getString(R.string.update_json_link));
-            if (response == null || response.length == 0)
-                return;
-            try {
-                JSONObject json = new JSONObject(new String(response));
-                StaticData.onlineVersion = json.getString("version");
-                StaticData.onlineVersionCode = json.getInt("versionCode");
-                StaticData.zipUrl = json.getString("zipUrl");
-                StaticData.changelogUrl = json.getString("changelog");
-                StaticData.hasOnlineInfo = true;
-                handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
-            } catch (JSONException e) {
-                Log.e(TAG, e.toString());
-            }
-        }).start();
-    }
+//先取消自动更新功能，未来也许加回?
+//    void getOnlineInfoTask() {
+//        if (StaticData.hasOnlineInfo)
+//            handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
+//        else new Thread(() -> {
+//            var response = Utils.getNetworkData(getString(R.string.update_json_link));
+//            if (response == null || response.length == 0)
+//                return;
+//            try {
+//                JSONObject json = new JSONObject(new String(response));
+//                StaticData.onlineVersion = json.getString("version");
+//                StaticData.onlineVersionCode = json.getInt("versionCode");
+//                StaticData.zipUrl = json.getString("zipUrl");
+//                StaticData.changelogUrl = json.getString("changelog");
+//                StaticData.hasOnlineInfo = true;
+//                handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
+//            } catch (JSONException e) {
+//                Log.e(TAG, e.toString());
+//            }
+//        }).start();
+//    }
 
     void initRealTimeInfoTimer() {
         if (timer != null || StaticData.imgHeight == 0 || StaticData.imgWidth == 0)
@@ -214,7 +214,7 @@ public class Home extends Fragment implements View.OnClickListener {
                     binding.realtimeLayout.setVisibility(View.GONE);
                     binding.freezeitLogo.setVisibility(View.GONE);
                     binding.versionCard.setVisibility(View.GONE);
-                    getOnlineInfoTask();
+//                    getOnlineInfoTask();
                 }
                 break;
 
@@ -296,7 +296,7 @@ public class Home extends Fragment implements View.OnClickListener {
                     binding.androidVer.setText(StaticData.androidVer);
                     binding.kernelVer.setText(StaticData.kernelVer);
 
-                    getOnlineInfoTask();
+//                    getOnlineInfoTask();
 
                     if (StaticData.imgWidth != 0 && StaticData.imgHeight != 0) {
                         initRealTimeInfoTimer();

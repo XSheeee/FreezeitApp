@@ -6,26 +6,26 @@ plugins {
 android {
     signingConfigs {
         debug {
-            storeFile file('D:\\Project-github\\freezeitapp\\freezeitapp_key.jks')
-            storePassword 'freezeit'
-            keyAlias 'freezeit'
-            keyPassword 'freezeit'
+            storeFile file('D:\\AndroidStudio\\XShe.jks')
+            storePassword 'duxianzhi885520'
+            keyAlias 'key0'
+            keyPassword 'duxianzhi885520'
         }
         release {
-            storeFile file('D:\\Project-github\\freezeitapp\\freezeitapp_key.jks')
-            storePassword 'freezeit'
-            keyAlias 'freezeit'
-            keyPassword 'freezeit'
+            storeFile file('D:\\AndroidStudio\\XShe.jks')
+            storePassword 'duxianzhi885520'
+            keyAlias 'key0'
+            keyPassword 'duxianzhi885520'
         }
     }
     compileSdk 34
 
     defaultConfig {
-        applicationId "io.github.jark006.freezeit"
+        applicationId "io.github.xsheeee.freezeitapp"
         minSdk 31
         targetSdk 34
-        versionCode 300003
-        versionName "3.0.0Beta3"
+        versionCode 101
+        versionName "1.01"
 
         resValue "string", "versionName", "${versionName}"
         signingConfig signingConfigs.release
@@ -53,11 +53,12 @@ android {
         viewBinding true
     }
     namespace 'io.github.jark006.freezeit'
-    ndkVersion '25.2.9519653'
+    ndkVersion '26.1.10909125'
     dependenciesInfo {
         includeInApk false
         includeInBundle false
     }
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {

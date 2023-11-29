@@ -3,7 +3,7 @@
     <string name="number" translatable="false">0</string>
     <string name="todo" translatable="false">TODO</string>
     <string name="cpu_format" translatable="false">🎛️ %2d%% %.1f℃</string>
-    <string name="coolapk_link" translatable="false">http://www.coolapk.com/u/1212220</string>
+    <string name="coolapk_link" translatable="false">http://www.coolapk.com/u/20552855</string>
     <string name="qq_group_link" translatable="false">https://jq.qq.com/?_wv=1027&amp;k=ZsyKpCP8</string>
     <string name="qq_channel_link" translatable="false">https://qun.qq.com/qqweb/qunpro/share?_wv=3&amp;_wwv=128&amp;appChannel=share&amp;inviteCode=1W6opB7&amp;appChannel=share&amp;businessType=9&amp;from=246610&amp;biz=ka</string>
     <string name="tg_link" translatable="false">tg://join?invite=sjDX1oTk31ZmYjY1</string>
@@ -16,7 +16,7 @@
     <string name="lanzou_link" translatable="false">https://jark006.lanzout.com/b017oz9if</string>
 
     <string name="privacy_content" translatable="false">
-        更新日期：2023/03/04
+        更新日期：2023/11/25
         \n\n导言
         \n\n冻它 是一款由 JARK006 （以下简称“我们”）提供的在安卓平台实现部分墓碑机制的软件，以下协议是本软件相关的具体协议内容，如对本《隐私政策》或相关事宜有任何问题，请通过 jark006@qq.com 与我们联系。
 
@@ -43,6 +43,7 @@
 
         \n\n五、 如何联系我们
         \n\n如果您对我们的应用权限和安全策略有任何顾虑和疑惑，可随时通过邮箱 jark006@qq.com 向我们反馈以及获得帮助。
+        \n\n此改版为XShe所改
     </string>
 
 
@@ -51,7 +52,7 @@
     <string name="title_config">Config</string>
     <string name="title_logcat">Log</string>
     <string name="icon">Icon</string>
-    <string name="coolapk_text">Coolapk @JARK006</string>
+    <string name="coolapk_text">Coolapk @JARK006/Coolapk @XShee</string>
     <string name="qq_group_text">QQ Group 781222669</string>
     <string name="qq_channel_text">QQ Channel [冻它模块]</string>
     <string name="tg_group_text">Telegram Group</string>
@@ -98,7 +99,7 @@
     <string name="lmk_title">Adjust LMK Parameter ⓘ</string>
     <string name="current_title">Adjust Current ⓘ</string>
     <string name="battery_title">Battery Monitor ⓘ</string>
-    <string name="developer">Developer JARK006</string>
+    <string name="developer">Developer JARK006/XShe</string>
     <string name="physical_ram_text">[RAM] Total: %1$.2f GiB\nUse: %2$.1f%% Remain: %3$.2f %4$s</string>
     <string name="virtual_ram_text">[SWAP] Total: %1$.2f GiB\nUse: %2$.1f%% Remain: %3$.2f %4$s</string>
     <string name="ext_memory">ExtMemory: %1$.2f GiB</string>
