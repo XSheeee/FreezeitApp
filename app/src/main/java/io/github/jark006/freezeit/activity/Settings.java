@@ -25,7 +25,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import io.github.jark006.freezeit.ManagerCmd;
+import java.util.Arrays;
+
 import io.github.jark006.freezeit.R;
 import io.github.jark006.freezeit.StaticData;
 import io.github.jark006.freezeit.Utils;
@@ -34,13 +35,13 @@ import io.github.jark006.freezeit.Utils;
 public class Settings extends AppCompatActivity implements View.OnClickListener {
     final int INIT_UI = 1, SET_VAR_SUCCESS = 2, SET_VAR_FAIL = 3;
 
-    Spinner freezeModeSpinner, reFreezeTimeoutSpinner, wakeupTimeoutSpinner;
-    SeekBar freezeTimeoutSeekbar, terminateTimeoutSeekbar;
-    TextView freezeTimeoutValueText, terminateTimeoutValueText;
+    Spinner freezeModeSpinner, reFreezeTimeoutSpinner;
+    SeekBar freezeTimeoutSeekbar, wakeupTimeoutSeekbar, terminateTimeoutSeekbar;
+    TextView freezeTimeoutText, wakeupTimeoutText, terminateTimeoutText;
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch batterySwitch, currentSwitch,
-            lmkSwitch, dozeSwitch, debugSwitch;
+            lmkSwitch, dozeSwitch, extendFgSwitch, dozeDebugSwitch;
 
     final int freezeTimeoutIdx = 2;
     final int wakeupTimeoutIdx = 3;
@@ -52,8 +53,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     final int currentIdx = 14;
     final int lmkIdx = 16;
     final int dozeIdx = 17;
+    final int extendFgIdx = 18;
 
-    final int debugIdx = 30;
+    final int dozeDebugIdx = 30;
 
     byte[] settingsVar = new byte[256];
     long lastTimestamp = 0;
@@ -77,25 +79,27 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.current_title).setOnClickListener(this);
         findViewById(R.id.lmk_title).setOnClickListener(this);
         findViewById(R.id.doze_title).setOnClickListener(this);
-        findViewById(R.id.debug_title).setOnClickListener(this);
+        findViewById(R.id.extend_fg_title).setOnClickListener(this);
+        findViewById(R.id.doze_debug_title).setOnClickListener(this);
 
         findViewById(R.id.set_bg).setOnClickListener(this);
 
         freezeModeSpinner = findViewById(R.id.freeze_mode_spinner);
         reFreezeTimeoutSpinner = findViewById(R.id.refreeze_timeout_spinner);
-        wakeupTimeoutSpinner = findViewById(R.id.wakeup_timeout_spinner);
 
-        freezeTimeoutValueText = findViewById(R.id.freeze_timeout_value_text);
-        terminateTimeoutValueText = findViewById(R.id.terminate_timeout_value_text);
-
+        freezeTimeoutText = findViewById(R.id.freeze_timeout_text);
+        wakeupTimeoutText = findViewById(R.id.wakeup_timeout_text);
+        terminateTimeoutText = findViewById(R.id.terminate_timeout_text);
         freezeTimeoutSeekbar = findViewById(R.id.seekBarTimeout);
+        wakeupTimeoutSeekbar = findViewById(R.id.seekBarWakeup);
         terminateTimeoutSeekbar = findViewById(R.id.seekBarTerminate);
 
         batterySwitch = findViewById(R.id.switch_battery);
         currentSwitch = findViewById(R.id.switch_current);
         lmkSwitch = findViewById(R.id.switch_lmk);
         dozeSwitch = findViewById(R.id.switch_doze);
-        debugSwitch = findViewById(R.id.switch_debug);
+        extendFgSwitch = findViewById(R.id.switch_extend_fg);
+        dozeDebugSwitch = findViewById(R.id.switch_doze_debug);
 
         if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
@@ -104,8 +108,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         }
 
         pickPicture = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if (result.getResultCode() != RESULT_OK || result.getData() == null ||
-                    result.getData().getData() == null)
+            if (result.getResultCode() != RESULT_OK || result.getData() == null)
                 return;
 
             try {
@@ -141,12 +144,17 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         super.onResume();
         findViewById(R.id.container).setBackground(StaticData.getBackgroundDrawable(this));
         new Thread(() -> {
-            var recvLen = Utils.freezeitTask(ManagerCmd.getSettings, null);
+            var recvLen = Utils.freezeitTask(Utils.getSettings, null);
             if (recvLen != 256) {
                 Toast.makeText(getBaseContext(), getString(R.string.get_settings_fail), Toast.LENGTH_LONG).show();
                 return;
             }
-            System.arraycopy(StaticData.response, 0, settingsVar, 0, 256);
+            settingsVar = Arrays.copyOfRange(StaticData.response, 0, 256);
+            if (settingsVar[freezeModeIdx] > 5) settingsVar[freezeModeIdx] = 0;
+            if (settingsVar[reFreezeTimeoutIdx] > 4) settingsVar[reFreezeTimeoutIdx] = 2;
+            if (settingsVar[freezeTimeoutIdx] > 60) settingsVar[freezeTimeoutIdx] = 10;
+            if (settingsVar[wakeupTimeoutIdx] > 120) settingsVar[wakeupTimeoutIdx] = 30;
+            if (settingsVar[terminateTimeoutIdx] > 120) settingsVar[terminateTimeoutIdx] = 30;
             handler.sendEmptyMessage(INIT_UI);
         }
         ).start();
@@ -240,7 +248,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     void setVarTask() {
         new Thread(() -> {
             byte[] request = {(byte) varIndexForHandle, (byte) newValueForHandle};
-            var recvLen = Utils.freezeitTask(ManagerCmd.setSettingsVar, request);
+            var recvLen = Utils.freezeitTask(Utils.setSettingsVar, request);
 
             Message msg = Message.obtain();
             if (recvLen == 0) {
@@ -267,19 +275,21 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
                 case INIT_UI:
                     InitSpinner(freezeModeSpinner, freezeModeIdx);
                     InitSpinner(reFreezeTimeoutSpinner, reFreezeTimeoutIdx);
-                    InitSpinner(wakeupTimeoutSpinner, wakeupTimeoutIdx);
 
-                    InitSeekbar(freezeTimeoutSeekbar, freezeTimeoutValueText, freezeTimeoutIdx);
-                    InitSeekbar(terminateTimeoutSeekbar, terminateTimeoutValueText, terminateTimeoutIdx);
+                    InitSeekbar(freezeTimeoutSeekbar, freezeTimeoutText, freezeTimeoutIdx);
+                    InitSeekbar(wakeupTimeoutSeekbar, wakeupTimeoutText, wakeupTimeoutIdx);
+                    InitSeekbar(terminateTimeoutSeekbar, terminateTimeoutText, terminateTimeoutIdx);
 
                     InitSwitch(batterySwitch, batteryIdx);
                     InitSwitch(currentSwitch, currentIdx);
                     InitSwitch(lmkSwitch, lmkIdx);
                     InitSwitch(dozeSwitch, dozeIdx);
-                    InitSwitch(debugSwitch, debugIdx);
+                    InitSwitch(extendFgSwitch, extendFgIdx);
+                    InitSwitch(dozeDebugSwitch, dozeDebugIdx);
                     break;
 
                 case SET_VAR_SUCCESS:
+                    Toast.makeText(getBaseContext(), getString(R.string.setup_successful), Toast.LENGTH_SHORT).show();
                     settingsVar[varIndexForHandle] = (byte) newValueForHandle;
                     break;
 
@@ -311,8 +321,10 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
             Utils.textDialog(this, R.string.lmk_title, R.string.lmk_tips);
         } else if (id == R.id.doze_title) {
             Utils.textDialog(this, R.string.doze_title, R.string.doze_tips);
-        } else if (id == R.id.debug_title) {
-            Utils.textDialog(this, R.string.debug_title, R.string.debug_tips);
+        } else if (id == R.id.extend_fg_title) {
+            Utils.textDialog(this, R.string.extend_fg_title, R.string.extend_fg_tips);
+        } else if (id == R.id.doze_debug_title) {
+            Utils.textDialog(this, R.string.doze_debug_title, R.string.doze_debug_tips);
         } else if (id == R.id.set_bg) {
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.setType("image/*");

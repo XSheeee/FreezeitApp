@@ -3,12 +3,12 @@
     <array name="recommend_package">
         <item>android</item>
         <item>com.miui.powerkeeper</item>
-        <item>io.github.jark006.freezeit</item>
+        <item>io.github.xsheeee.freezeit</item>
     </array>
 
     <string-array name="level">
         <item>😡Strict</item>
-        <item>😐️Permissive</item>
+        <item>😐Lenient</item>
     </string-array>
 
     <string-array name="freeze_mode">
@@ -21,21 +21,16 @@
     </string-array>
 
     <string-array name="work_mode">
-        <item>V2(FROZEN)</item>
-        <item>V2(UID)</item>
         <item>Global SIGSTOP</item>
+        <item>V1(FROZEN)</item>
+        <item>V1(FRZ+ST)</item>
+        <item>V2(UID)</item>
+        <item>V2(FROZEN)</item>
+        <item>Auto</item>
     </string-array>
 
     <string-array name="refreeze_timeout">
         <item>Off</item>
-        <item>30 min</item>
-        <item>1 hour</item>
-        <item>2 hour</item>
-    </string-array>
-
-    <string-array name="wakeup_timeout">
-        <item>Off</item>
-        <item>5 min</item>
         <item>15 min</item>
         <item>30 min</item>
         <item>1 hour</item>

@@ -1,5 +1,7 @@
 package io.github.jark006.freezeit.fragment;
 
+import static androidx.core.content.ContextCompat.getColor;
+
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Intent;
@@ -30,14 +32,13 @@ import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import io.github.jark006.freezeit.BuildConfig;
-import io.github.jark006.freezeit.ManagerCmd;
-import io.github.jark006.freezeit.R;
-import io.github.jark006.freezeit.StaticData;
-import io.github.jark006.freezeit.Utils;
 import io.github.jark006.freezeit.activity.About;
 import io.github.jark006.freezeit.activity.AppTime;
+import io.github.jark006.freezeit.BuildConfig;
+import io.github.jark006.freezeit.R;
 import io.github.jark006.freezeit.activity.Settings;
+import io.github.jark006.freezeit.StaticData;
+import io.github.jark006.freezeit.Utils;
 import io.github.jark006.freezeit.databinding.FragmentHomeBinding;
 
 public class Home extends Fragment implements View.OnClickListener {
@@ -124,7 +125,7 @@ public class Home extends Fragment implements View.OnClickListener {
     void refreshStatus() {
         if (StaticData.hasGetPropInfo) handler.sendEmptyMessage(HAS_MODULE_INFO);
         else new Thread(() -> {
-            var recvLen = Utils.freezeitTask(ManagerCmd.getPropInfo, null);
+            var recvLen = Utils.freezeitTask(Utils.getPropInfo, null);
 
             // info [0]:moduleID [1]:moduleName [2]:moduleVersion [3]:moduleVersionCode [4]:moduleAuthor
             //      [5]:clusterNum: CPU丛集数
@@ -154,27 +155,27 @@ public class Home extends Fragment implements View.OnClickListener {
             handler.sendEmptyMessage(HAS_MODULE_INFO);
         }).start();
     }
-//先取消自动更新功能，未来也许加回?
-//    void getOnlineInfoTask() {
-//        if (StaticData.hasOnlineInfo)
-//            handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
-//        else new Thread(() -> {
-//            var response = Utils.getNetworkData(getString(R.string.update_json_link));
-//            if (response == null || response.length == 0)
-//                return;
-//            try {
-//                JSONObject json = new JSONObject(new String(response));
-//                StaticData.onlineVersion = json.getString("version");
-//                StaticData.onlineVersionCode = json.getInt("versionCode");
-//                StaticData.zipUrl = json.getString("zipUrl");
-//                StaticData.changelogUrl = json.getString("changelog");
-//                StaticData.hasOnlineInfo = true;
-//                handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
-//            } catch (JSONException e) {
-//                Log.e(TAG, e.toString());
-//            }
-//        }).start();
-//    }
+
+    void getOnlineInfoTask() {
+        if (StaticData.hasOnlineInfo)
+            handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
+        else new Thread(() -> {
+            var response = Utils.getNetworkData(getString(R.string.update_json_link));
+            if (response == null || response.length == 0)
+                return;
+            try {
+                JSONObject json = new JSONObject(new String(response));
+                StaticData.onlineVersion = json.getString("version");
+                StaticData.onlineVersionCode = json.getInt("versionCode");
+                StaticData.zipUrl = json.getString("zipUrl");
+                StaticData.changelogUrl = json.getString("changelog");
+                StaticData.hasOnlineInfo = true;
+                handler.sendEmptyMessage(HANDLE_ONLINE_INFO);
+            } catch (JSONException e) {
+                Log.e(TAG, e.toString());
+            }
+        }).start();
+    }
 
     void initRealTimeInfoTimer() {
         if (timer != null || StaticData.imgHeight == 0 || StaticData.imgWidth == 0)
@@ -190,7 +191,7 @@ public class Home extends Fragment implements View.OnClickListener {
                 StaticData.am.getMemoryInfo(memoryInfo); // 底层 /proc/meminfo 的 MemAvailable 不可靠
                 Utils.Int2Byte((int) (memoryInfo.availMem >> 20), realTimeRequest, 8); //Unit: MiB
 
-                realTimeResponseLen = Utils.freezeitTask(ManagerCmd.getRealTimeInfo, realTimeRequest);
+                realTimeResponseLen = Utils.freezeitTask(Utils.getRealTimeInfo, realTimeRequest);
                 if (realTimeResponseLen > 0)
                     handler.sendEmptyMessage(HANDLE_REALTIME_INFO);
             }
@@ -200,7 +201,7 @@ public class Home extends Fragment implements View.OnClickListener {
     private final Handler handler = new Handler(Looper.getMainLooper()) {
         @SuppressLint({"SetTextI18n", "DefaultLocale"})
         @Override
-        public void handleMessage(@NonNull Message msg) {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (binding == null)
                 return;
@@ -214,7 +215,7 @@ public class Home extends Fragment implements View.OnClickListener {
                     binding.realtimeLayout.setVisibility(View.GONE);
                     binding.freezeitLogo.setVisibility(View.GONE);
                     binding.versionCard.setVisibility(View.GONE);
-//                    getOnlineInfoTask();
+                    getOnlineInfoTask();
                 }
                 break;
 
@@ -258,7 +259,7 @@ public class Home extends Fragment implements View.OnClickListener {
                         if (StaticData.localChangelog.length() > 0)
                             binding.changelogText.setText(StaticData.localChangelog);
                         else new Thread(() -> {
-                            var recvLen = Utils.freezeitTask(ManagerCmd.getChangelog, null);
+                            var recvLen = Utils.freezeitTask(Utils.getChangelog, null);
                             if (recvLen == 0)
                                 return;
 
@@ -296,7 +297,46 @@ public class Home extends Fragment implements View.OnClickListener {
                     binding.androidVer.setText(StaticData.androidVer);
                     binding.kernelVer.setText(StaticData.kernelVer);
 
-//                    getOnlineInfoTask();
+                    final int colorEfficiency = getColor(requireContext(), R.color.efficiency_core);
+                    final int colorPerformance = getColor(requireContext(), R.color.performance_core);
+                    final int colorPerformanceEnhance = getColor(requireContext(), R.color.performance_e_core);
+                    // default:44  4+4
+                    switch (StaticData.clusterType) {
+                        case 431: // 4+3+1
+                            binding.cpu4.setTextColor(colorPerformance);
+                            binding.cpu5.setTextColor(colorPerformance);
+                            binding.cpu6.setTextColor(colorPerformance);
+                            break;
+                        case 3221: // 3+2+2+1
+                            binding.cpu3.setTextColor(colorPerformance);
+                            binding.cpu4.setTextColor(colorPerformance);
+                            binding.cpu5.setTextColor(colorPerformanceEnhance);
+                            binding.cpu6.setTextColor(colorPerformanceEnhance);
+                            break;
+                        case 422: // 4+2+2
+                            binding.cpu4.setTextColor(colorPerformance);
+                            binding.cpu5.setTextColor(colorPerformance);
+                            break;
+                        case 251: // 2+5+1
+                            binding.cpu2.setTextColor(colorPerformance);
+                            binding.cpu3.setTextColor(colorPerformance);
+                            binding.cpu4.setTextColor(colorPerformance);
+                            binding.cpu5.setTextColor(colorPerformance);
+                            binding.cpu6.setTextColor(colorPerformance);
+                            break;
+                        case 62: // 6+2
+                            binding.cpu4.setTextColor(colorEfficiency);
+                            binding.cpu5.setTextColor(colorEfficiency);
+                            break;
+                        case 8: //全小核，或全核心一致
+                            binding.cpu4.setTextColor(colorEfficiency);
+                            binding.cpu5.setTextColor(colorEfficiency);
+                            binding.cpu6.setTextColor(colorEfficiency);
+                            binding.cpu7.setTextColor(colorEfficiency);
+                            break;
+                    }
+
+                    getOnlineInfoTask();
 
                     if (StaticData.imgWidth != 0 && StaticData.imgHeight != 0) {
                         initRealTimeInfoTimer();

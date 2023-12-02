@@ -22,7 +22,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import io.github.jark006.freezeit.AppInfoCache;
-import io.github.jark006.freezeit.ManagerCmd;
 import io.github.jark006.freezeit.R;
 import io.github.jark006.freezeit.StaticData;
 import io.github.jark006.freezeit.Utils;
@@ -37,7 +36,6 @@ public class Logcat extends Fragment {
     Timer timer;
     int lastLogLen = 0;
     long lastTimestamp = 0;
-    boolean isGetWorkLog = true;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,16 +59,12 @@ public class Logcat extends Fragment {
                 lastTimestamp = now;
 
                 int id = menuItem.getItemId();
-                if (id == R.id.help_log) {
+                if (id == R.id.help_log)
                     Utils.layoutDialog(requireContext(), R.layout.help_dialog_logcat);
-                } else if (id == R.id.switch_log) {
-                    isGetWorkLog = !isGetWorkLog;
-                    cancelTimer();
-                    resetTimer();
-                } else if (id == R.id.update_label) {
+                else if (id == R.id.update_label) {
                     Toast.makeText(requireContext(), R.string.update_start, Toast.LENGTH_SHORT).show();
                     new Thread(() -> {
-                        var recvLen = Utils.freezeitTask(ManagerCmd.setAppLabel, AppInfoCache.getAppLabelBytes());
+                        var recvLen = Utils.freezeitTask(Utils.setAppLabel, AppInfoCache.getAppLabelBytes());
 
                         handler.sendEmptyMessage((recvLen == 7 &&
                                 new String(StaticData.response, 0, 7).equals("success")) ?
@@ -89,7 +83,7 @@ public class Logcat extends Fragment {
             }
             lastTimestamp = now;
 
-            new Thread(() -> logTask(ManagerCmd.printFreezerProc)).start();
+            new Thread(() -> logTask(Utils.printFreezerProc)).start();
         });
 
         binding.fabClear.setOnClickListener(view -> {
@@ -100,7 +94,7 @@ public class Logcat extends Fragment {
             }
             lastTimestamp = now;
 
-            new Thread(() -> logTask(ManagerCmd.clearLog)).start();
+            new Thread(() -> logTask(Utils.clearLog)).start();
         });
 
         return binding.getRoot();
@@ -115,30 +109,23 @@ public class Logcat extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        cancelTimer();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        resetTimer();
-    }
-
-    void cancelTimer() {
         if (timer != null) {
             timer.cancel();
             timer = null;
         }
     }
 
-    void resetTimer() {
+    @Override
+    public void onResume() {
+        super.onResume();
+
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                logTask(isGetWorkLog ? ManagerCmd.getLog : ManagerCmd.getXpLog);
+                logTask(Utils.getLog);
             }
-        }, 0, 5000);
+        }, 0, 3000);
     }
 
     void logTask(byte cmd) {
@@ -152,7 +139,7 @@ public class Logcat extends Fragment {
     private final Handler handler = new Handler(Looper.getMainLooper()) {
         @SuppressLint("SetTextI18n")
         @Override
-        public void handleMessage(@NonNull Message msg) {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (binding == null)
                 return;

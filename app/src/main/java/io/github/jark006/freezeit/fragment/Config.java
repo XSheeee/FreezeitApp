@@ -40,7 +40,6 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import io.github.jark006.freezeit.AppInfoCache;
-import io.github.jark006.freezeit.ManagerCmd;
 import io.github.jark006.freezeit.R;
 import io.github.jark006.freezeit.StaticData;
 import io.github.jark006.freezeit.Utils;
@@ -57,7 +56,7 @@ public class Config extends Fragment {
     long lastTimestamp = 0;
 
 
-    // 配置名单 <uid, <freezeMode, isPermissive>>
+    // 配置名单 <uid, <freezeMode, isTolerant>>
     // freezeMode: [10]:杀死 [20]:SIGSTOP [21]:SIGSTOP断网 [30]:Freezer [31]:Freezer断网 [40]:自由 [50]:内置
     HashMap<Integer, Pair<Integer, Integer>> appCfg = new HashMap<>();
     ArrayList<Integer> uidListSort = new ArrayList<>();
@@ -126,11 +125,33 @@ public class Config extends Fragment {
             if (newConf == null) return;
 
             new Thread(() -> {
-                var recvLen = Utils.freezeitTask(ManagerCmd.setAppCfg, newConf);
+                var recvLen = Utils.freezeitTask(Utils.setAppCfg, newConf);
                 handler.sendEmptyMessage((recvLen == 7 &&
                         new String(StaticData.response, 0, 7).equals("success")) ?
                         SET_CFG_SUCCESS : SET_CFG_FAIL);
             }).start();
+        });
+
+        binding.fabConvertCfg.setOnClickListener(view -> {
+            var now = System.currentTimeMillis();
+            if ((now - lastTimestamp) < 500) {
+                Toast.makeText(requireContext(), getString(R.string.slowly_tips), Toast.LENGTH_LONG).show();
+                return;
+            }
+            lastTimestamp = now;
+
+            recycleAdapter.convertCfg();
+        });
+
+        binding.fabConvertTolerant.setOnClickListener(view -> {
+            var now = System.currentTimeMillis();
+            if ((now - lastTimestamp) < 500) {
+                Toast.makeText(requireContext(), getString(R.string.slowly_tips), Toast.LENGTH_LONG).show();
+                return;
+            }
+            lastTimestamp = now;
+
+            recycleAdapter.convertTolerant();
         });
 
         binding.fabSwitchSys.setOnClickListener(view -> {
@@ -156,7 +177,7 @@ public class Config extends Fragment {
     }
 
     void getAppCfgTask() {
-        var recvLen = Utils.freezeitTask(ManagerCmd.getAppCfg, null);
+        var recvLen = Utils.freezeitTask(Utils.getAppCfg, null);
         if (recvLen == 0 || recvLen % 12 != 0) {
             if (binding != null)
                 binding.swipeRefreshLayout.setRefreshing(false);
@@ -168,9 +189,9 @@ public class Config extends Fragment {
         for (int i = 0; i < recvLen; i += 12) {
             int uid = Utils.Byte2Int(StaticData.response, i);
             int freezeMode = Utils.Byte2Int(StaticData.response, i + 4);
-            int isPermissive = Utils.Byte2Int(StaticData.response, i + 8);
+            int isTolerant = Utils.Byte2Int(StaticData.response, i + 8);
             if (AppInfoCache.contains(uid)) // 冻它底层可以获取全部应用，但应用层获取的 AppInfoCache 可能会缺一些特殊应用
-                appCfg.put(uid, new Pair<>(freezeMode, isPermissive));
+                appCfg.put(uid, new Pair<>(freezeMode, isTolerant));
         }
 
         var uidList = AppInfoCache.getUidList();
@@ -245,7 +266,7 @@ public class Config extends Fragment {
     private final Handler handler = new Handler(Looper.getMainLooper()) {
         @SuppressLint("SetTextI18n")
         @Override
-        public void handleMessage(@NonNull Message msg) {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (binding == null)
                 return;
@@ -275,7 +296,7 @@ public class Config extends Fragment {
     static class AppCfgAdapter extends RecyclerView.Adapter<AppCfgAdapter.MyViewHolder> {
         ArrayList<Integer> uidList = new ArrayList<>();
         ArrayList<Integer> uidListFilter = new ArrayList<>(400);
-        static HashMap<Integer, Pair<Integer, Integer>> appCfg = new HashMap<>(); //<uid, <freezeMode, permissive>>
+        static HashMap<Integer, Pair<Integer, Integer>> appCfg = new HashMap<>(); //<uid, <freezeMode, tolerant>>
         boolean showSystemApp = false;
         String keyWord = "";
 
@@ -353,19 +374,19 @@ public class Config extends Fragment {
 
             var cfg = appCfg.get(uid);
             int freezeMode = cfg == null ? CFG_FREEZER : cfg.first;
-            int isPermissive = cfg == null ? 0 : cfg.second;
+            int isTolerant = cfg == null ? 0 : cfg.second;
 
             if (freezeMode == CFG_WHITEFORCE) {
-                holder.spinner_permissive.setVisibility(View.GONE);
+                holder.spinner_tolerant.setVisibility(View.GONE);
                 holder.spinner_cfg.setVisibility(View.GONE);
                 return;
             }
 
             holder.spinner_cfg.setVisibility(View.VISIBLE);
-            holder.spinner_permissive.setVisibility(freezeMode == CFG_WHITELIST ? View.GONE : View.VISIBLE);
+            holder.spinner_tolerant.setVisibility(freezeMode == CFG_WHITELIST ? View.GONE : View.VISIBLE);
 
             holder.spinner_cfg.setSelection(cfgValue2idx(freezeMode));
-            holder.spinner_permissive.setSelection(isPermissive == 0 ? 0 : 1);
+            holder.spinner_tolerant.setSelection(isTolerant == 0 ? 0 : 1);
         }
 
         @Override
@@ -377,7 +398,7 @@ public class Config extends Fragment {
 
             ImageView app_icon;
             TextView app_label;
-            Spinner spinner_cfg, spinner_permissive;
+            Spinner spinner_cfg, spinner_tolerant;
             int uid = 0;
 
             public MyViewHolder(View view) {
@@ -385,7 +406,7 @@ public class Config extends Fragment {
                 app_icon = view.findViewById(R.id.app_icon);
                 app_label = view.findViewById(R.id.app_label);
                 spinner_cfg = view.findViewById(R.id.spinner_cfg);
-                spinner_permissive = view.findViewById(R.id.spinner_level);
+                spinner_tolerant = view.findViewById(R.id.spinner_level);
 
                 spinner_cfg.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -395,7 +416,7 @@ public class Config extends Fragment {
                         int newFreezeMode = idx2cfgValue(spinnerPosition);
                         if (cfg == null || cfg.first == newFreezeMode) return;
                         appCfg.put(uid, new Pair<>(newFreezeMode, cfg.second));
-                        spinner_permissive.setVisibility(newFreezeMode == CFG_WHITELIST ? View.GONE : View.VISIBLE);
+                        spinner_tolerant.setVisibility(newFreezeMode == CFG_WHITELIST ? View.GONE : View.VISIBLE);
                     }
 
                     @Override
@@ -403,7 +424,7 @@ public class Config extends Fragment {
                     }
                 });
 
-                spinner_permissive.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                spinner_tolerant.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int spinnerPosition, long id) {
                         if (uid == 0) return;
@@ -418,6 +439,38 @@ public class Config extends Fragment {
                 });
             }
 
+        }
+
+        @SuppressLint("NotifyDataSetChanged")
+        public void convertCfg() {
+            appCfg.forEach((uid, cfg) -> {
+                if (AppInfoCache.get(uid).isSystemApp == showSystemApp) {
+                    switch (cfg.first) {
+                        case CFG_FREEZER:
+                            appCfg.put(uid, new Pair<>(CFG_SIGSTOP, cfg.second));
+                            break;
+                        case CFG_SIGSTOP:
+                            appCfg.put(uid, new Pair<>(CFG_FREEZER, cfg.second));
+                            break;
+                        case CFG_FREEZER_BR:
+                            appCfg.put(uid, new Pair<>(CFG_SIGSTOP_BR, cfg.second));
+                            break;
+                        case CFG_SIGSTOP_BR:
+                            appCfg.put(uid, new Pair<>(CFG_FREEZER_BR, cfg.second));
+                            break;
+                    }
+                }
+            });
+            notifyDataSetChanged();
+        }
+
+        @SuppressLint("NotifyDataSetChanged")
+        public void convertTolerant() {
+            appCfg.forEach((uid, cfg) -> {
+                if (AppInfoCache.get(uid).isSystemApp == showSystemApp)
+                    appCfg.put(uid, new Pair<>(cfg.first, cfg.second == 0 ? 1 : 0));
+            });
+            notifyDataSetChanged();
         }
 
 
