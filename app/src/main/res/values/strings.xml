@@ -22,9 +22,9 @@
         </string>
 
     <string name="privacy_content" translatable="false">
-        更新日期：2023/03/04
+        更新日期：2023/12/02
         \n\n导言
-        \n\n冻它 是一款由 JARK006 （以下简称“我们”）提供的在安卓平台实现部分墓碑机制的软件，以下协议是本软件相关的具体协议内容，如对本《隐私政策》或相关事宜有任何问题，请通过 jark006@qq.com 与我们联系。
+        \n\n冻它 是一款由 JARK006/XShe （以下简称“我们”）提供的在安卓平台实现部分墓碑机制的软件，以下协议是本软件相关的具体协议内容，如对本《隐私政策》或相关事宜有任何问题，请通过 jark006@qq.com 与我们联系。
 
         \n\n一、 我们收集的信息
         \n\n我们仅收集用户设备上的”应用列表及相关信息“、”实时进程信息“及“设备硬件相关信息”，这些信息全部保存再设备本地，不会以任何形式上传或转移到设备外部。也不会收集任何关于个人的隐私信息。
@@ -48,7 +48,7 @@
         \n2. 如遇本政策更新，新的政策信息将内置到新版应用，跟随应用一起发布。
 
         \n\n五、 如何联系我们
-        \n\n如果您对我们的应用权限和安全策略有任何顾虑和疑惑，可随时通过邮箱 jark006@qq.com 向我们反馈以及获得帮助。
+        \n\n如果您对我们的应用权限和安全策略有任何顾虑和疑惑，可随时通过邮箱 jark006@qq.com/a1960995065@163.com 向我们反馈以及获得帮助。
     </string>
 
 
@@ -57,7 +57,7 @@
     <string name="title_config">Config</string>
     <string name="title_logcat">Log</string>
     <string name="icon">Icon</string>
-    <string name="coolapk_text">Coolapk @JARK006</string>
+    <string name="coolapk_text">Coolapk @JARK006/Coolapk @XShee</string>
     <string name="qq_group_text">QQ Group 781222669</string>
     <string name="qq_channel_text">QQ Channel [冻它模块]</string>
     <string name="tg_group_text">Telegram Group</string>
