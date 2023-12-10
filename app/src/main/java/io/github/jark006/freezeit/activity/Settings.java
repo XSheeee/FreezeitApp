@@ -41,7 +41,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch batterySwitch, currentSwitch,
-            lmkSwitch, dozeSwitch, extendFgSwitch, dozeDebugSwitch;
+            lmkSwitch, dozeSwitch, extendFgSwitch, dozeDebugSwitch, binderSwitch;
 
     final int freezeTimeoutIdx = 2;
     final int wakeupTimeoutIdx = 3;
@@ -56,6 +56,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     final int extendFgIdx = 18;
 
     final int dozeDebugIdx = 30;
+
+    //冻结binder
+    final int freezerBinderIdx = 31;
 
     byte[] settingsVar = new byte[256];
     long lastTimestamp = 0;
@@ -81,6 +84,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.doze_title).setOnClickListener(this);
         findViewById(R.id.extend_fg_title).setOnClickListener(this);
         findViewById(R.id.doze_debug_title).setOnClickListener(this);
+        findViewById(R.id.freezer_binder_title).setOnClickListener(this);
 
         findViewById(R.id.set_bg).setOnClickListener(this);
 
@@ -98,6 +102,8 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         currentSwitch = findViewById(R.id.switch_current);
         lmkSwitch = findViewById(R.id.switch_lmk);
         dozeSwitch = findViewById(R.id.switch_doze);
+        //冻结binder
+        binderSwitch = findViewById(R.id.switch_binder);
         extendFgSwitch = findViewById(R.id.switch_extend_fg);
         dozeDebugSwitch = findViewById(R.id.switch_doze_debug);
 
@@ -286,6 +292,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
                     InitSwitch(dozeSwitch, dozeIdx);
                     InitSwitch(extendFgSwitch, extendFgIdx);
                     InitSwitch(dozeDebugSwitch, dozeDebugIdx);
+                    InitSwitch(binderSwitch, freezerBinderIdx);
                     break;
 
                 case SET_VAR_SUCCESS:
@@ -325,6 +332,8 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
             Utils.textDialog(this, R.string.extend_fg_title, R.string.extend_fg_tips);
         } else if (id == R.id.doze_debug_title) {
             Utils.textDialog(this, R.string.doze_debug_title, R.string.doze_debug_tips);
+        } else if (id == R.id.freezer_binder_title) {
+            Utils.textDialog(this, R.string.freezer_binder_title, R.string.freezer_binder_tips);
         } else if (id == R.id.set_bg) {
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.setType("image/*");

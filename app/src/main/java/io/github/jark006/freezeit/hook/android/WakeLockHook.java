@@ -16,6 +16,11 @@ public class WakeLockHook {
 
     public WakeLockHook(Config config, ClassLoader classLoader) {
         this.config = config;
+        //A14 SDK U+ 34+
+        //https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/power/PowerManagerService.java;l=1?q=PowerManagerService.java&sq=&ss=android
+        //private void acquireWakeLockInternal(IBinder lock, int displayId, int flags, String tag,
+        //            String packageName, WorkSource ws, String historyTag, int uid, int pid,
+        //            @Nullable IWakeLockCallback callback)
 
         // A13 SDK T+ 33+
         // https://cs.android.com/android/platform/superproject/+/android-13.0.0_r18:frameworks/base/services/core/java/com/android/server/power/PowerManagerService.java;l=1473
@@ -33,7 +38,13 @@ public class WakeLockHook {
         // private void acquireWakeLockInternal(IBinder lock, int flags, String tag, String packageName,
         //            WorkSource ws, String historyTag, int uid, int pid)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
+            XpUtils.hookMethod(TAG, classLoader, callback,
+                    Enum.Class.PowerManagerService, Enum.Method.acquireWakeLockInternal,
+                    IBinder.class, int.class, int.class, String.class,
+                    String.class, WorkSource.class, String.class, int.class, int.class,
+                    Enum.Class.IWakeLockCallback);
+        }else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU) {
             XpUtils.hookMethod(TAG, classLoader, callback,
                     Enum.Class.PowerManagerService, Enum.Method.acquireWakeLockInternal,
                     IBinder.class, int.class, int.class, String.class,

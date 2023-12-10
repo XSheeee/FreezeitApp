@@ -12,14 +12,14 @@ android {
             keyPassword 'freezeit'
         }
     }
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
-        applicationId "io.github.xsheeee.freezeit"
+        applicationId "io.github.jark006.freezeit"
         minSdk 29
         targetSdk 33
-        versionCode 1000020
-        versionName "1.0.2"
+        versionCode 1002010
+        versionName "1.2.1"
 
         resValue "string", "versionName", "${versionName}"
         signingConfig signingConfigs.release
@@ -48,8 +48,8 @@ android {
         viewBinding true
     }
     namespace 'io.github.jark006.freezeit'
-    ndkVersion '25.2.9519653'
-    buildToolsVersion '33.0.0'
+    ndkVersion '26.1.10909125'
+    buildToolsVersion '34.0.0'
     dependenciesInfo {
         includeInApk false
         includeInBundle false
@@ -59,7 +59,6 @@ android {
 dependencies {
 
     compileOnly 'de.robv.android.xposed:api:82'
-
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
     implementation 'androidx.appcompat:appcompat:1.6.1'

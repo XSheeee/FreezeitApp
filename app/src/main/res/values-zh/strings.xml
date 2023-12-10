@@ -11,8 +11,8 @@
 
     <string name="website_link">https://jark006.gitee.io/i/freezeit/</string>
     <string name="tutorial_link">https://jark006.gitee.io/FreezeitIntroduction/</string>
-    <string name="update_json_link">https://ghproxy.com/https://raw.githubusercontent.com/jark006/freezeitRelease/main/update.json</string>
-    <string name="online_changelog_link">https://ghproxy.com/https://raw.githubusercontent.com/jark006/freezeitRelease/main/changelogFull.txt</string>
+    <string name="update_json_link">https://ghproxy.com/https://raw.githubusercontent.com/XSheeee/freezeitRelease/main/update.json</string>
+    <string name="online_changelog_link">https://ghproxy.com/https://raw.githubusercontent.com/XSheeee/freezeitRelease/main/changelogFull.txt</string>
 
 
     <string name="coolapk_text">酷安 @JARK006/酷安@XShee</string>
@@ -114,6 +114,8 @@
     <string name="lmk_tips">调整lmk参数，尽量保留更多应用后台(内存使用量会比较高)。重启生效</string>
 
     <string name="doze_title">息屏Doze ⓘ</string>
+    <string name="freezer_binder_title">Freezer(Binder冻结)ⓘ</string>
+    <string name="freezer_binder_tips">开关Freezer Binder 冻结</string>
     <string name="doze_tips">
         虽然系统默认会进入Doze(低功耗待机模式)，但多是轻度doze，而进入深度Doze条件更为苛刻。
         \n开启后，息屏状态超时3分钟，尝试强制进入深度Doze，息屏播放和充电状态除外。

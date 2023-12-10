@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://api.xposed.info/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
     }
 }
 rootProject.name = "冻它"
