@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/icon"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/app_label"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="@string/app_label"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/delta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="@string/todo"
+        android:textColor="?attr/colorSecondary" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        android:text="@string/todo" />
+
+
+</LinearLayout>
