@@ -1,3 +1,22 @@
+<<<<<<< HEAD
 .vs
 ARM64
 X64
+=======
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/release
+>>>>>>> cabca810cd252952356a35ba0e7ac4c5e2edbdaa

@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="fab_margin">12dp</dimen>
+    <dimen name="width_margin">100dp</dimen>
+</resources>
