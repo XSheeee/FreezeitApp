@@ -22,10 +22,10 @@ android {
 
     defaultConfig {
         applicationId "io.github.jark006.freezeit"
-        minSdk 34
+        minSdk 29
         targetSdk 34
-        versionCode 2002000
-        versionName "2.2.0"
+        versionCode 2002001
+        versionName "2.2.0alpha"
 
         resValue "string", "versionName", "${versionName}"
         signingConfig signingConfigs.release

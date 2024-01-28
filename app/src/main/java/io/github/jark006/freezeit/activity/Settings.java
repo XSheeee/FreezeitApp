@@ -150,6 +150,11 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
                 return;
             }
             System.arraycopy(StaticData.response, 0, settingsVar, 0, 256);
+            if (settingsVar[freezeModeIdx]>5)settingsVar[freezeModeIdx]=0;
+            if(settingsVar[reFreezeTimeoutIdx]>4)settingsVar[reFreezeTimeoutIdx]=2;
+            if(settingsVar[freezeTimeoutIdx]>60)settingsVar[freezeTimeoutIdx]=10;
+            if(settingsVar[wakeupTimeoutIdx]>5)settingsVar[wakeupTimeoutIdx]=3;
+            if(settingsVar[terminateTimeoutIdx]>120)settingsVar[terminateTimeoutIdx]=30;
             handler.sendEmptyMessage(INIT_UI);
         }
         ).start();
