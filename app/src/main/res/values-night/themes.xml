@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.freezeit" parent="Theme.MaterialComponents.DayNight.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/gray_55</item>
+        <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/purple_500</item>
@@ -12,7 +12,7 @@
         <item name="colorOnSecondary">@color/purple_500</item>
         <item name="colorOnSurface">@color/purple_500</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/gray_55</item>
+        <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="footButton" parent="Theme.AppCompat.DayNight.DarkActionBar">

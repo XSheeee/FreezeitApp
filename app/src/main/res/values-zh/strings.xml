@@ -7,19 +7,22 @@
     <string name="title_logcat">日志</string>
     <string name="icon">图标</string>
 
+    <string name="log_title">log输出位置ⓘ</string>
+    <string name="log_tips">更改log输出位置,重启生效</string>
+
     <string name="xposed_description">冻它辅助模块</string>
 
     <string name="website_link">https://jark006.gitee.io/i/freezeit/</string>
     <string name="tutorial_link">https://jark006.gitee.io/FreezeitIntroduction/</string>
-    <string name="update_json_link">https://ghproxy.com/https://raw.githubusercontent.com/XSheeee/freezeitRelease/main/update.json</string>
-    <string name="online_changelog_link">https://ghproxy.com/https://raw.githubusercontent.com/XSheeee/freezeitRelease/main/changelogFull.txt</string>
+    <string name="update_json_link">https://github.com/XSheeee/freezeitRelease/blob/main/update.json</string>
+    <string name="online_changelog_link">https://github.com/XSheeee/freezeitRelease/blob/main/changelogFull.txt</string>
 
 
     <string name="coolapk_text">酷安 @JARK006/@XSheeee</string>
-    <string name="qq_group_text">QQ群组 781222669</string>
-    <string name="qq_channel_text">QQ频道 冻它模块</string>
-    <string name="tg_group_text">Telegram 讨论组</string>
-    <string name="tg_channel_text">Telegram 发布频道</string>
+    <string name="qq_group_text">QQ群组 697991010</string>
+    <string name="qq_channel_text">QQ频道 冻它模块(本改版)</string>
+    <string name="tg_group_text">Telegram 讨论组(原版)</string>
+    <string name="tg_channel_text">Telegram 发布频道(原版)</string>
 
     <string name="update_app_label">更新应用名称</string>
     <string name="about">关于</string>
@@ -52,7 +55,7 @@
 
     <string name="second">秒</string>
     <string name="minute">分</string>
-    <string name="lanzou_password">蓝奏云密码: dy6i</string>
+    <string name="lanzou_password">蓝奏云密码: 0519</string>
     <string name="donate_wechat">微信捐赠</string>
     <string name="donate_alipay">支付宝捐赠</string>
     <string name="github_open_source">管理器开源</string>
@@ -156,7 +159,7 @@
     <string name="managerVer">管理器版本</string>
     <string name="kernel_version">内核版本</string>
     <string name="android_version">安卓版本</string>
-    <string name="freezeit_website">冻它官网</string>
+    <string name="freezeit_website">冻它官网(原版)</string>
     <string name="set_background">设置背景</string>
     <string name="appFailTips">应用列表获取失败，请授予相关权限</string>
     <string name="xposed_log">Xposed日志</string>

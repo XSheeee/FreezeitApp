@@ -17,8 +17,8 @@
 
     <string-array name="work_mode">
         <item>全局Sig</item>
-        <item>V1(Forzen)</item>
-        <item>V1(+ Forzen)</item>
+        <item>V1(Frozen)</item>
+        <item>V1(+ Frozen)</item>
         <item>V2(FROZEN)</item>
         <item>V2(UID)</item>
         <item>自动</item>

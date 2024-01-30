@@ -40,7 +40,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch batterySwitch, currentSwitch,
-            lmkSwitch, dozeSwitch, debugSwitch, binderSwitch;
+            lmkSwitch, dozeSwitch, debugSwitch, binderSwitch
+//            ,logSwitch
+                    ;
 
     final int freezeTimeoutIdx = 2;
     final int wakeupTimeoutIdx = 3;
@@ -56,7 +58,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     final int debugIdx = 30;
 
     final int binderIdx = 31;
-
+//    final int logIdx=32;
     byte[] settingsVar = new byte[256];
     long lastTimestamp = 0;
 
@@ -81,6 +83,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.doze_title).setOnClickListener(this);
         findViewById(R.id.debug_title).setOnClickListener(this);
         findViewById(R.id.binder_title).setOnClickListener(this);
+//        findViewById(R.id.log_title).setOnClickListener(this);
         findViewById(R.id.set_bg).setOnClickListener(this);
 
         freezeModeSpinner = findViewById(R.id.freeze_mode_spinner);
@@ -99,7 +102,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         dozeSwitch = findViewById(R.id.switch_doze);
         debugSwitch = findViewById(R.id.switch_debug);
         binderSwitch = findViewById(R.id.switch_binder);
-
+//        logSwitch=findViewById(R.id.switch_log);
         if (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(Settings.this,
@@ -286,6 +289,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
                     InitSwitch(dozeSwitch, dozeIdx);
                     InitSwitch(debugSwitch, debugIdx);
                     InitSwitch(binderSwitch, binderIdx);
+//                    InitSwitch(logSwitch,logIdx);
                     break;
 
                 case SET_VAR_SUCCESS:
@@ -324,7 +328,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
             Utils.textDialog(this, R.string.debug_title, R.string.debug_tips);
         } else if (id == R.id.binder_title) {
             Utils.textDialog(this, R.string.binder_title, R.string.binder_tips);
-        } else if (id == R.id.set_bg) {
+//        } else if (id==R.id.log_title) {
+//            Utils.textDialog(this, R.string.log_title, R.string.log_tips);
+       } else if (id == R.id.set_bg) {
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.setType("image/*");
             pickPicture.launch(intent);

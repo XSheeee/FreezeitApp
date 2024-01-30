@@ -200,26 +200,26 @@ public class Config extends Fragment {
         // 优先排列：FREEZER SIGSTOP 杀死后台， 次排列：宽松 严格
         for (int uid : uidList) {
             var mode = appCfg.get(uid);
-            if (mode != null && (mode.first == Utils.CFG_FREEZER || mode.first == Utils.CFG_FREEZER_BR)
+            if (mode != null && (mode.first == Utils.CFG_FREEZER || mode.first== CFG_FREEZER_BR)
                     && mode.second != 0)
                 uidListSort.add(uid);
         }
         for (int uid : uidList) {
             var mode = appCfg.get(uid);
-            if (mode != null && (mode.first == Utils.CFG_FREEZER || mode.first == Utils.CFG_FREEZER_BR)
+            if (mode != null && (mode.first == Utils.CFG_FREEZER || mode.first== CFG_FREEZER_BR)
                     && mode.second == 0)
                 uidListSort.add(uid);
         }
 
         for (int uid : uidList) {
             var mode = appCfg.get(uid);
-            if (mode != null && (mode.first == CFG_SIGSTOP || mode.first == Utils.CFG_SIGSTOP_BR)
+            if (mode != null && (mode.first == CFG_SIGSTOP || mode.first== CFG_SIGSTOP_BR)
                     && mode.second != 0)
                 uidListSort.add(uid);
         }
         for (int uid : uidList) {
             var mode = appCfg.get(uid);
-            if (mode != null && (mode.first == CFG_SIGSTOP || mode.first == Utils.CFG_SIGSTOP_BR)
+            if (mode != null && (mode.first == CFG_SIGSTOP || mode.first== CFG_SIGSTOP_BR)
                     && mode.second == 0)
                 uidListSort.add(uid);
         }

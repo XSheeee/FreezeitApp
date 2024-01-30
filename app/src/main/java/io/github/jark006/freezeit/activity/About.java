@@ -50,7 +50,7 @@ public class About extends AppCompatActivity implements View.OnClickListener {
                 Intent intent = new Intent();
                 intent.setClassName("com.coolapk.market", "com.coolapk.market.view.AppLinkActivity");
                 intent.setAction("android.intent.action.VIEW");
-                intent.setData(Uri.parse("coolmarket://u/1212220"));
+                intent.setData(Uri.parse("coolmarket://u/20552855"));
                 startActivity(intent);
             } catch (Exception e) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.coolapk_link))));
