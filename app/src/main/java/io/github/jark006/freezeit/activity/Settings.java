@@ -40,7 +40,7 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch batterySwitch, currentSwitch,
-            lmkSwitch, dozeSwitch, debugSwitch, binderSwitch
+            lmkSwitch, dozeSwitch, debugSwitch, binderSwitch,breakNetworkSwitch,extendFgSwitch,radicalForegroundSwitch
 //            ,logSwitch
                     ;
 
@@ -49,7 +49,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     final int terminateTimeoutIdx = 4;
     final int freezeModeIdx = 5;
     final int reFreezeTimeoutIdx = 6;
-
+    final int radicalForegroundIdx = 10;
+    final int breakNetworkIdx = 15;
+    final int extendFgIdx = 18;
     final int batteryIdx = 13;
     final int currentIdx = 14;
     final int lmkIdx = 16;
@@ -84,6 +86,10 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.debug_title).setOnClickListener(this);
         findViewById(R.id.binder_title).setOnClickListener(this);
 //        findViewById(R.id.log_title).setOnClickListener(this);
+        findViewById(R.id.extend_fg_title).setOnClickListener(this);
+        findViewById(R.id.break_network_title).setOnClickListener(this);
+        findViewById(R.id.radical_foreground_title).setOnClickListener(this);
+
         findViewById(R.id.set_bg).setOnClickListener(this);
 
         freezeModeSpinner = findViewById(R.id.freeze_mode_spinner);
@@ -100,6 +106,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
         currentSwitch = findViewById(R.id.switch_current);
         lmkSwitch = findViewById(R.id.switch_lmk);
         dozeSwitch = findViewById(R.id.switch_doze);
+        extendFgSwitch = findViewById(R.id.switch_extend_fg);
+        breakNetworkSwitch = findViewById(R.id.switch_break_network);
+        radicalForegroundSwitch = findViewById(R.id.switch_radical_foreground);
         debugSwitch = findViewById(R.id.switch_debug);
         binderSwitch = findViewById(R.id.switch_binder);
 //        logSwitch=findViewById(R.id.switch_log);
@@ -289,6 +298,9 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
                     InitSwitch(dozeSwitch, dozeIdx);
                     InitSwitch(debugSwitch, debugIdx);
                     InitSwitch(binderSwitch, binderIdx);
+                    InitSwitch(extendFgSwitch, extendFgIdx);
+                    InitSwitch(breakNetworkSwitch, breakNetworkIdx);
+                    InitSwitch(radicalForegroundSwitch, radicalForegroundIdx);
 //                    InitSwitch(logSwitch,logIdx);
                     break;
 
@@ -328,6 +340,13 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
             Utils.textDialog(this, R.string.debug_title, R.string.debug_tips);
         } else if (id == R.id.binder_title) {
             Utils.textDialog(this, R.string.binder_title, R.string.binder_tips);
+        } else if (id == R.id.extend_fg_title) {
+            Utils.textDialog(this, R.string.extend_fg_title, R.string.extend_fg_tips);
+        } else if (id == R.id.break_network_title) {
+            Utils.textDialog(this, R.string.break_network_title, R.string.break_network_tips);
+        } else if (id == R.id.radical_foreground_title) {
+            Utils.textDialog(this, R.string.radical_foreground_title, R.string.radical_foreground_tips);
+
 //        } else if (id==R.id.log_title) {
 //            Utils.textDialog(this, R.string.log_title, R.string.log_tips);
        } else if (id == R.id.set_bg) {

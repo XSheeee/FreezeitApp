@@ -17,9 +17,9 @@
     <string name="log_title">change logⓘ</string>
     <string name="log_tips">change the way to show the running log,need reboot</string>
     <string name="privacy_content" translatable="false">
-        更新日期：2023/03/04
+        更新日期：2024/01/31
         \n\n导言
-        \n\n冻它 是一款由 JARK006 （以下简称“我们”）提供的在安卓平台实现部分墓碑机制的软件，以下协议是本软件相关的具体协议内容，如对本《隐私政策》或相关事宜有任何问题，请通过 jark006@qq.com 与我们联系。
+        \n\n冻它λ(FreezeitLambda) 是一款由XShe/MoWei （以下简称“我们”）提供的在安卓平台实现部分墓碑机制的软件(继承自Jark006的冻它(Freezeit))，以下协议是本软件相关的具体协议内容，如对本《隐私政策》或相关事宜有任何问题，请通过 xsheworking@126.com 与我们联系。
 
         \n\n一、 我们收集的信息
         \n\n我们仅收集用户设备上的”应用列表及相关信息“、”实时进程信息“及“设备硬件相关信息”，这些信息全部保存再设备本地，不会以任何形式上传或转移到设备外部。也不会收集任何关于个人的隐私信息。
@@ -43,7 +43,7 @@
         \n2. 如遇本政策更新，新的政策信息将内置到新版应用，跟随应用一起发布。
 
         \n\n五、 如何联系我们
-        \n\n如果您对我们的应用权限和安全策略有任何顾虑和疑惑，可随时通过邮箱 jark006@qq.com 向我们反馈以及获得帮助。
+        \n\n如果您对我们的应用权限和安全策略有任何顾虑和疑惑，可随时通过邮箱 xsheworking@126.com 向我们反馈以及获得帮助。
     </string>
 
 
@@ -52,7 +52,7 @@
     <string name="title_config">Config</string>
     <string name="title_logcat">Log</string>
     <string name="icon">Icon</string>
-    <string name="coolapk_text">Coolapk @JARK006/@XShee</string>
+    <string name="coolapk_text">Coolapk @JARK006/@XShee/@MoWei</string>
     <string name="qq_group_text">QQ Group 781222669</string>
     <string name="qq_channel_text">QQ Channel [冻它模块]</string>
     <string name="tg_group_text">Telegram Group</string>
@@ -99,7 +99,7 @@
     <string name="lmk_title">Adjust LMK Parameter ⓘ</string>
     <string name="current_title">Adjust Current ⓘ</string>
     <string name="battery_title">Battery Monitor ⓘ</string>
-    <string name="developer">Developer JARK006/XShe</string>
+    <string name="developer">Developer JARK006/XShe/MoWei</string>
     <string name="physical_ram_text">[RAM] Total: %1$.2f GiB\nUse: %2$.1f%% Remain: %3$.2f %4$s</string>
     <string name="virtual_ram_text">[SWAP] Total: %1$.2f GiB\nUse: %2$.1f%% Remain: %3$.2f %4$s</string>
     <string name="ext_memory">ExtMemory: %1$.2f GiB</string>
@@ -126,7 +126,20 @@
     <string name="beta_version">Beta Version</string>
 
     <string name="binder_title">检测Binder ⓘ</string>
-    <string name="binder_tips">检测binder是否通信冻结，内核版本5.10加可开启，重启生效</string>
+    <string name="binder_tips">检测binder是否通信冻结，内核版本5.4版本及以上均可开启，重启生效</string>
+
+    <string name="extend_fg_tips">Some systems will modify the foreground/background state mechanism (some COS 11), resulting in some foreground applications not being recognized correctly and being frozen. If you have encountered this situation, then you need to turn it on and reboot to take effect. If everything is fine then it is recommended to turn off</string>
+    <string name="extend_fg_title">Extended Foreground Recognize ⓘ</string>
+
+    <string name="break_network_title">QQ冻结断网 ⓘ</string>
+    <string name="break_network_tips">
+        冻结QQ/TIM时断开其网络，由HMSPush或MiPush接管消息推送。
+        \n冻它教程附有HMSPush使用教程</string>
+
+    <string name="radical_foreground_title">激进前台识别 ⓘ</string>
+    <string name="radical_foreground_tips">
+        关闭后解决解冻失败问题 但会增加功耗 重启生效。
+</string>
 
     <string name="online_version">Online Version</string>
     <string name="current_version">Current Version</string>
@@ -166,8 +179,8 @@
 
     <string name="website_link">https://jark006.github.io/i/freezeit/</string>
     <string name="tutorial_link">https://jark006.github.io/FreezeitIntroduction/</string>
-    <string name="update_json_link">https://raw.githubusercontent.com/XSheeee/freezeitRelease/main/update.json</string>
-    <string name="online_changelog_link">https://raw.githubusercontent.com/XSheeee/freezeitRelease/main/changelogFull.txt</string>
+    <string name="update_json_link">https://gitee.com/XShee/freezeit-release/raw/release/update.json</string>
+    <string name="online_changelog_link">https://gitee.com/XShee/freezeit-release/raw/release/changelogFull.txt</string>
     <string name="privacy_title">Privacy</string>
     <string name="reject">Reject</string>
     <string name="accept">Accept</string>

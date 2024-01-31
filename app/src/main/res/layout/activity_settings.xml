@@ -305,6 +305,84 @@
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
         </LinearLayout>
 
+      <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/break_network_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="15dp"
+                android:text="@string/break_network_title"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/switch_break_network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector"
+                android:minHeight="30dp"
+                android:thumbTint="@color/white"
+                android:trackTint="@color/transparent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+      
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/extend_fg_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="15dp"
+                android:text="@string/extend_fg_title"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/switch_extend_fg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector"
+                android:minHeight="30dp"
+                android:thumbTint="@color/white"
+                android:trackTint="@color/transparent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/radical_foreground_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="15dp"
+                android:text="@string/radical_foreground_title"
+                android:textSize="18sp" />
+
+            <Switch
+                android:id="@+id/switch_radical_foreground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector"
+                android:minHeight="30dp"
+                android:thumbTint="@color/white"
+                android:trackTint="@color/transparent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -356,31 +434,6 @@
                 android:trackTint="@color/transparent"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
         </LinearLayout>
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/log_title"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:paddingVertical="15dp"-->
-<!--                android:text="@string/log_title"-->
-<!--                android:textSize="18sp" />-->
-
-<!--            <Switch-->
-<!--                android:id="@+id/switch_log"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/selector"-->
-<!--                android:minHeight="30dp"-->
-<!--                android:thumbTint="@color/white"-->
-<!--                android:trackTint="@color/transparent"-->
-<!--                tools:ignore="UseSwitchCompatOrMaterialXml" />-->
-<!--        </LinearLayout>-->
 
         <View
             android:layout_width="match_parent"
