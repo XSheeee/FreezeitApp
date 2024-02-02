@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">冻它λ</string>
+
+    <string name="title_home">主页</string>
+    <string name="title_config">配置</string>
+    <string name="title_logcat">日志</string>
+    <string name="icon">图标</string>
+
+    <string name="log_title">log输出位置ⓘ</string>
+    <string name="log_tips">更改log输出位置,重启生效</string>
+
+    <string name="xposed_description">冻它辅助模块</string>
+
+    <string name="website_link">https://mowei.anmo2077.tk</string>
+    <string name="tutorial_link">https://jark006.gitee.io/FreezeitIntroduction/</string>
+    <string name="update_json_link">https://github.com/XSheeee/freezeitRelease/blob/main/update.json</string>
+    <string name="online_changelog_link">https://github.com/XSheeee/freezeitRelease/blob/main/changelogFull.txt</string>
+
+
+    <string name="coolapk_text">酷安 @JARK006/@XShe/@MoWei</string>
+    <string name="qq_group_text">QQ群组 697991010</string>
+    <string name="qq_channel_text">QQ频道 冻它模块(本改版)</string>
+    <string name="tg_group_text">Telegram 讨论组(原版)</string>
+    <string name="tg_channel_text">Telegram 发布频道(原版)</string>
+
+    <string name="update_app_label">更新应用名称</string>
+    <string name="about">关于</string>
+    <string name="developer">开发者 JARK006/XShe/MoWei</string>
+    <string name="xposed_warn">未激活,无法工作</string>
+    <string name="freezeit_offline">冻它未启用或工作异常</string>
+    <string name="freezeit_error_tips">
+        1.开机解锁30秒后才启动，请稍后再打开。
+        \n2.请检查面具模块是否已启用。
+        \n3.请检查冻它APP的网络权限。
+        \n4.请检查异常日志:/sdcard/Android/freezeit_crash_log.txt
+        \n5.如果设备还没安装冻它的面具模块(MagiskModule)，请通过以下跳转按钮下载并安装。
+        \n6.如果设备还没有获取Root权限，将无法使用冻它。
+    </string>
+    <string name="get_log_fail_tips">工作日志获取失败</string>
+    <string name="get_changelog_fail_tips">更新日志获取失败</string>
+    <string name="update_success">更新成功</string>
+    <string name="update_fail">更新失败</string>
+    <string name="update_start">开始更新 应用名称</string>
+    <string name="app_label">应用名称</string>
+    <string name="clear_log_text">清空日志</string>
+    <string name="clear_log_tips">已清空日志</string>
+    <string name="title_activity_setting">设置</string>
+    <string name="title_activity_task_manager">CPU使用时长</string>
+
+    <string name="slowly_tips">别急，慢点</string>
+    <string name="help">帮助</string>
+    <string name="freezeit_tutorial_text">冻它教程说明</string>
+    <string name="download">下载</string>
+
+    <string name="second">秒</string>
+    <string name="minute">分</string>
+    <string name="lanzou_password">蓝奏云密码: 0519</string>
+    <string name="donate_wechat">微信捐赠</string>
+    <string name="donate_alipay">支付宝捐赠</string>
+    <string name="github_open_source">管理器开源</string>
+    <string name="github_project">项目开源</string>
+    <string name="physical_ram_text">[物理内存] 全部: %1$.2f GiB\n已用:%2$.1f%% 可用: %3$.2f %4$s</string>
+    <string name="virtual_ram_text">[虚拟内存] 全部: %1$.2f GiB\n已用:%2$.1f%% 可用: %3$.2f %4$s</string>
+    <string name="ext_memory">另有内存扩展: %1$.2f GiB</string>
+    <string name="setup_successful">设置成功</string>
+    <string name="setup_failed">设置失败</string>
+    <string name="no_response">无响应，设置失败</string>
+    <string name="get_settings_fail">设置数据获取失败</string>
+    <string name="update_cache">更新缓存</string>
+    <string name="new_version">📌新版本</string>
+    <string name="beta_version">内测版本</string>
+    <string name="current_version">当前版本</string>
+    <string name="online_version">在线版本</string>
+    <string name="online_changelog">历史更新日志</string>
+    <string name="title_activity_about">关于</string>
+
+    <string name="freeze_mode_title">Freezer类型 ⓘ</string>
+    <string name="freeze_mode_tips">
+
+        V1+(FROZEN) V2(FROZEN)相对稳定，推荐选项。
+        \nV2(UID)有概率因cgroup/Freezer初始化延迟导致冻结失效(不推荐)。
+        \nV1(FROZEN)因为内存泄漏 无法杀死后台 MIUI13及以上除外(不推荐)。
+        \n若选定全局SIGSTOP，设为Freezer冻结的应用将实际使用SIGSTOP冻结 容易冻死应用(不推荐)。
+        \n重启生效</string>
+
+    <string name="refreeze_timeout_title">定时压制 ⓘ</string>
+    <string name="refreeze_timeout_tips">
+        定时检查后台活动，重新冻结被关联唤醒的后台进程，以及压制开机自启动的后台进程。
+        \n一些通过修改进程状态的“保后台”机制（例如Thanox中给应用设置"后台保护"，或者ColorOS特有的"白名单"后台机制），
+        这些机制保护下的应用，冻它将其识别成”前台状态“，不再冻结。</string>
+
+    <string name="wakeup_timeout_title">定时解冻 ⓘ</string>
+    <string name="wakeup_timeout_tips">
+        定时解冻被冻结的后台应用，解冻时长为[超时冻结]参数。
+        \n如果使用FreezerV1存在内存泄漏(即无法结束冻结状态的进程)，则需开启定时解冻才能结束应用。</string>
+
+    <string name="freeze_timeout_title">超时冻结 ⓘ</string>
+    <string name="freeze_timeout_tips">
+        应用切到后台之后，延迟多久冻结。
+        \n如果应用切换频繁，不建议设置太短</string>
+
+    <string name="terminate_timeout_title">超时杀死 ⓘ</string>
+    <string name="terminate_timeout_tips">
+        设为[杀死后台]的应用切入后台之后，延迟多久杀死。
+        \n一般用于不需要留后台的工具型应用</string>
+
+    <string name="battery_title">电池监控 ⓘ</string>
+    <string name="battery_tips">记录电池充/放电时长、功率、温度等</string>
+
+    <string name="binder_title">检测Binder ⓘ</string>
+    <string name="binder_tips">检测binder是否通信冻结，内核版本5.10加可开启，重启生效</string>
+
+    <string name="current_title">电流校准 ⓘ</string>
+    <string name="current_tips">电流或功率数值接近或等于0则需要开启，常见于OPPO/VIVO</string>
+
+    <string name="lmk_title">后台应用保活 ⓘ</string>
+    <string name="lmk_tips">调整lmk参数，尽量保留更多应用后台(内存使用量会比较高)。重启生效</string>
+
+    <string name="doze_title">息屏Doze ⓘ</string>
+    <string name="doze_tips">
+        系统进入Doze状态的条件比较苛刻，开启该选项可在息屏几分钟后快速进入深度Doze.
+        \n若唤醒率经常99%+，大概率是某些自由后台/系统应用滥用唤醒锁，导致无法进入Doze，可使用BetterBatteryStats(BBS)监控唤醒锁使用情况。
+    </string>
+
+          <string name="extend_fg_title">扩展前台识别 ⓘ</string>
+    <string name="extend_fg_tips">
+        Thanox(灭霸)的后台保护功能以及部分系统(COS11)会修改应用前、后台状态机制，导致应用无法识别为前台而被冻结。
+        \n如果你遇到过这种情况，则需要打开，重启生效。若一切正常则建议关闭</string>
+
+    <string name="break_network_title">QQ冻结断网 ⓘ</string>
+    <string name="break_network_tips">
+        冻结QQ/TIM时断开其网络，由HMSPush或MiPush接管消息推送。
+        \n冻它教程附有HMSPush使用教程</string>
+
+    <string name="radical_foreground_title">激进前台识别 ⓘ</string>
+    <string name="radical_foreground_tips">
+        激进前台识别 开启后解决解冻失败问题 但会增加功耗。
+    </string>
+
+    <string name="debug_title">Doze调试日志 ⓘ</string>
+    <string name="debug_tips">开启调试日志，日志记录更加详细运行状况</string>
+
+    <string name="config_help_text">
+        【杀死后台】:该应用进入后台超时就直接杀死，而不是冻结。
+        \n【SIGSTOP冻结】:使用SIGSTOP信号进行冻结 容易冻死应用。
+        \n【Freezer冻结】:使用cgroup的Freezer子系统进行冻结。
+        \n【后台自由】:该应用不会冻结，可在后台自由运行。
+
+        \n\n【严格前台】:应用有独立的显示窗口(常规窗口，半屏，小窗等)，才算前台状态，不会被冻结。
+        \n【宽松前台】:应用存在独立显示窗口、有悬浮窗、常驻通知栏、音频播放服务等前台服务时，都算前台状态，不会被冻结。
+
+        \n\n部分特殊应用(输入法，桌面，Magisk等)将强制自由后台，不能配置冻结。
+    </string>
+
+    <string name="help_logcat_update">更新应用名称\n不再使用包名</string>
+    <string name="help_logcat_check">查看冻结状态、内存占用</string>
+    <string name="help_logcat_clear">清空日志</string>
+    <string name="app_time_help_text">
+        统计应用的全部核心总使用时间，基本上反应该应用的耗电水平。若一个应用1秒内占用了3个核心的全部计算资源，将累计3秒。
+        \n\n应用正在运行时，并非一直在使用CPU资源运算，而是在其需要处理数据的时候才会使用，而大多数时间会在“休眠”状态。
+        \n\n注:以上数据统计属于系统默认行为，冻它只是读取进行可视化。
+    </string>
+    <string name="save">保存</string>
+    <string name="convert_freezer_sigstop">反转 Freezer / SIGSTOP</string>
+    <string name="convert_strict">反转 严格 / 宽松</string>
+    <string name="switch_sys_third">切换系统、三方应用</string>
+
+    <string name="privacy_title">隐私协议</string>
+    <string name="reject">拒绝</string>
+    <string name="accept">接受</string>
+    <string name="thanks_title">捐赠感谢名单</string>
+    <string name="unknown">未知</string>
+    <string name="moduleEnv">模块环境</string>
+    <string name="moduleVer">冻它版本</string>
+    <string name="managerVer">管理器版本</string>
+    <string name="kernel_version">内核版本</string>
+    <string name="android_version">安卓版本</string>
+    <string name="freezeit_website">冻它λ官网</string>
+    <string name="set_background">设置背景</string>
+    <string name="appFailTips">应用列表获取失败，请授予相关权限</string>
+    <string name="xposed_log">Xposed日志</string>
+    <string name="switch_xposed_log">切换Xposed日志</string>
+    <string name="sys_warn_title">谨慎配置系统应用</string>
+    <string name="sys_warn_info">系统应用比较特殊，很多需要常驻后台，随时为系统提供各类服务。\n\n
+        如果冻结，会引起很多系统异常现象，即使设为杀死后台，也会被系统不断重复拉起，这种反复拉锯会加速手机耗电。\n\n
+        如果你不清楚你的行为会造成什么后果，则建议系统应用默认一律“🍀️自由后台”。</string>
+</resources>

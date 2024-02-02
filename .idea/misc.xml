@@ -1,0 +1,96 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.182" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_baseline_ac_unit_24.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.203" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_changelog_24dp.xml" value="0.203" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_config_24dp.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_home_24dp.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.182" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_info_24dp.xml" value="0.203" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.182" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_logcat_24.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_logcat_24dp.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_logotop.xml" value="0.1995" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.182" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/about.xml" value="0.2" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/alipay.xml" value="0.1734375" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/app_item_layout.xml" value="0.3536458333333333" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/bitcoinpay.xml" value="0.1734375" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/ecnypay.xml" value="0.16927083333333334" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/ethereumpay.xml" value="0.16927083333333334" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/fragment_config.xml" value="0.15625" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/fragment_dashboard.xml" value="0.3546875" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/fragment_logcat.xml" value="0.16927083333333334" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/fragment_notifications.xml" value="0.3546875" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/qqpay.xml" value="0.3546875" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/layout/wechatpay.xml" value="0.17447916666666666" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3194444444444444" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/menu/config_menu.xml" value="0.3546875" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.182" />
+        <entry key="..\:/AndroidWSP/freezeitapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.182" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_changelog_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_clear_log_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_config_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_convert_24.xml" value="0.211" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_home_24dp.xml" value="0.2355" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_info_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_logcat_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_refresh_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_save_24.xml" value="0.2265" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_search_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_settings_24dp.xml" value="0.19" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/ic_update_app_name_24dp.xml" value="0.1795" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/linearlayout_corners.xml" value="0.217" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/drawable/seekbar_bg.xml" value="0.1635" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/about.xml" value="0.33" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/activity_main.xml" value="0.20081595648232095" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/activity_setting.xml" value="0.3057591623036649" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/activity_taskmanager.xml" value="0.2911500641299701" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/alipay.xml" value="0.14010416666666667" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/app_item_layout.xml" value="0.2911500641299701" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/app_list.xml" value="0.19324497648567765" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/bitcoinpay.xml" value="0.2911500641299701" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/content_setting.xml" value="0.11500641299700727" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/ecnypay.xml" value="0.2911500641299701" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/fragment_config.xml" value="0.22" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/fragment_logcat.xml" value="0.2" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/layout_setting.xml" value="0.11415134672937152" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/layout_settings.xml" value="0.20949123557075675" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/layout_taskmanager.xml" value="0.2911500641299701" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/qqpay.xml" value="0.3546875" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/layout/wechatpay.xml" value="0.2911500641299701" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3546875" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/menu/config_menu.xml" value="0.14010416666666667" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/menu/home_menu.xml" value="0.14010416666666667" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/menu/logcat_menu.xml" value="0.25" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.224" />
+        <entry key="..\:/Project-github/freezeitapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.224" />
+      </map>
+    </option>
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/doc" />
+    <option name="OTHER_OPTIONS" value="-encoding UTF-8" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/Build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2911500641299701" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
