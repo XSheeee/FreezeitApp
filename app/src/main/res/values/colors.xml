@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#2196F3</color>
+    <color name="purple_700">#0067B9</color>
+    <color name="teal_200">#1003DAC5</color>
+    <color name="teal_700">#10018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="gray_11">#111111</color>
+    <color name="gray_33">#333333</color>
+    <color name="gray_55">#555555</color>
+    <color name="gray_77">#777777</color>
+    <color name="gray_99">#999999</color>
+    <color name="gray_bb">#bbbbbb</color>
+    <color name="gray_dd">#dddddd</color>
+    <color name="gray_ee">#eeeeee</color>
+
+    <color name="black_11">#11000000</color>
+    <color name="black_33">#33000000</color>
+    <color name="black_55">#55000000</color>
+    <color name="black_77">#77000000</color>
+    <color name="black_99">#99000000</color>
+
+    <color name="float_button">#4488ff</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="trans_gray_11">#11bbbbbb</color>
+    <color name="trans_gray_33">#33bbbbbb</color>
+    <color name="trans_gray_44">#44bbbbbb</color>
+    <color name="trans_gray_55">#55bbbbbb</color>
+    <color name="trans_gray_77">#77bbbbbb</color>
+    <color name="trans_gray_99">#99bbbbbb</color>
+    <color name="trans_gray_bb">#bbbbbbbb</color>
+    <color name="trans_gray_dd">#ddbbbbbb</color>
+
+    <color name="efficiency_core">#22BB22</color>
+    <color name="performance_core">#2288DD</color>
+    <color name="performance_e_core">#BB6622</color>
+    <color name="prime_core">#FF4422</color>
+
+    <color name="blue">#CC0080FF</color>
+
+    <color name="warn_red">#66FF0000</color>
+    <color name="warn_orange">#66FF8800</color>
+    <color name="normal_green">#6600FF00</color>
+    <color name="gray_white">#10000000</color>
+
+    <color name="ic_launcher_background">#4090FF</color>
+</resources>
