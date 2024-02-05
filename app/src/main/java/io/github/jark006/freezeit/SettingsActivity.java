@@ -142,12 +142,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 return;
             }
             settingsVar = Arrays.copyOfRange(StaticData.response, 0, 256);
-            if (settingsVar[clusterBindIdx] > 5) settingsVar[clusterBindIdx] = 0;
-            if (settingsVar[freezeModeIdx] > 5) settingsVar[freezeModeIdx] = 2;
-            if (settingsVar[reFreezeTimeoutIdx] > 4) settingsVar[reFreezeTimeoutIdx] = 0;
-            if (settingsVar[freezeTimeoutIdx] > 60) settingsVar[freezeTimeoutIdx] = 10;
-            if (settingsVar[wakeupTimeoutIdx] > 120) settingsVar[wakeupTimeoutIdx] = 30;
-            if (settingsVar[terminateTimeoutIdx] > 120) settingsVar[terminateTimeoutIdx] = 30;
+            if (settingsVar[freezeModeIdx]>6)settingsVar[freezeModeIdx]=0;
+            if(settingsVar[reFreezeTimeoutIdx]>4)settingsVar[reFreezeTimeoutIdx]=0;
+            if(settingsVar[freezeTimeoutIdx]>60)settingsVar[freezeTimeoutIdx]=10;
+            if(settingsVar[wakeupTimeoutIdx]>4)settingsVar[wakeupTimeoutIdx]=1;
+            if(settingsVar[terminateTimeoutIdx]>120)settingsVar[terminateTimeoutIdx]=30;
             handler.sendEmptyMessage(INIT_UI);
         }
         ).start();

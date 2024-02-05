@@ -84,13 +84,12 @@
 
     <string name="freeze_mode_title">Freezer类型 ⓘ</string>
     <string name="freeze_mode_tips">
-        每个应用可选SIGSTOP或Freezer两种冻结模式。而Freezer模式有2个版本，具体版本由内核决定。
-        \n内核4.9及以下仅支持V1。
-        \n内核4.14~4.19支持V1和不完整V2(默认不开启，可尝试使用模块进行挂载)。
-        \n内核5.4起支持完整版V2。
-        \nV1(FRZ+ST)为FreezerV1和SIGSTOP双重冻结(实验性)，用于解决V1冻结延迟或失效问题。
-        \nV2(FROZEN)相对稳定，而V2(UID)有概率因cgroup/Freezer子系统反应不及时导致冻结失效。
-        \n一般自动选择即可，设置重启生效</string>
+        Freezer类型，即冻结类型，主要由内核和当天rom决定:
+        \n以下为一些简单的推荐级别，仅供参考。
+        \n基本推荐:V2Frozen=V2UID>V1+>SIGSTOP>V1
+        \n内核为4.14/4.9以下，推荐使用V1+或SIGSTOP
+    \n内核为4.19至5.x以前，推荐使用V1+或V2（是不完整的）,如果是有移植,则为完整V2
+    \n5.x均推荐使用V2,特殊情况请使用V1+/SIGSTOP</string>
 
     <string name="refreeze_timeout_title">定时压制 ⓘ</string>
     <string name="refreeze_timeout_tips">
