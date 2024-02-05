@@ -24,8 +24,8 @@ android {
         applicationId "io.github.jark006.freezeit"
         minSdk 29
         targetSdk 34
-        versionCode 1706853758
-        versionName "V1.2FR(Android13-14)"
+        versionCode 1707126418
+        versionName "V1.4FR(Android13-14)"
 
         resValue "string", "versionName", "${versionName}"
         signingConfig signingConfigs.release
@@ -44,7 +44,7 @@ android {
     android.applicationVariants.configureEach {
         variant ->
             variant.outputs.configureEach {
-                outputFileName = "FreezeitLambda13_${versionName}_${variant.buildType.name}.apk"
+                outputFileName = "FreezeitLambda13.apk"
             }
     }
     compileOptions {

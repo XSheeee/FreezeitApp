@@ -14,19 +14,19 @@
     <string-array name="freeze_mode">
         <item>⚔️Terminate</item>
         <item>🧊SIGSTOP</item>
-        <item>🧊ST_BREAK</item>
+        <item>🧊ST_BREAK(abandoned)</item>
         <item>❄️Freezer</item>
-        <item>❄️FRZ_BREAK</item>
+        <item>❄️FRZ_BREAK(abandoned)</item>
         <item>🍀️Free</item>
     </string-array>
 
     <string-array name="work_mode">
-        <item>All in SIGTOP !!!</item>
+        <item>All in SIGSTOP !!!</item>
         <item>V1(FROZEN)</item>
-        <item>V1(FRZ+SIG)</item>
         <item>V1+(FROZEN)</item>
-        <item>V2(FROZEN)</item>
+        <item>V1(FRZ+SIG)</item>
         <item>V2(UID)</item>
+        <item>V2(FROZEN)</item>
         <item>Auto</item>
     </string-array>
 

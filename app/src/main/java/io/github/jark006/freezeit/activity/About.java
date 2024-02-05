@@ -86,7 +86,7 @@ public class About extends AppCompatActivity implements View.OnClickListener {
         } else if (id == R.id.privacy_text) {
             Utils.textDialog(this, R.string.privacy_title, R.string.privacy_content);
         } else if (id == R.id.wechat_pay) {
-            Utils.imgDialog(this, R.drawable.img_wechatpay);
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.aifadian))));
         }
     }
 }
